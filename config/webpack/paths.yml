@@ -1,3 +1,0 @@
-# Restart webpack-watcher or webpack-dev-server if you make changes here
-config: config/webpack
-output: public

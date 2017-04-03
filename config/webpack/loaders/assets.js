@@ -1,7 +1,7 @@
 const { env, publicPath } = require('../configuration.js')
 
 module.exports = {
-  test: /\.(jpeg|png|gif|svg|eot|ttf|woff|woff2)$/i,
+  test: /\.(jpeg|jpg|png|gif|svg|eot|ttf|woff|woff2)$/i,
   use: [{
     loader: 'file-loader',
     options: {
