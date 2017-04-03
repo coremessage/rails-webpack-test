@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Railspack</title>
+  <%= javascript_pack_tag 'app' %>
+  <%= javascript_pack_tag 'vendor' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="root"></div>
+<%= yield %>
+
+</body>
+</html>
