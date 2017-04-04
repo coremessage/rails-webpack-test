@@ -13,9 +13,11 @@ const assetPath = './app/assets/'
 
 module.exports = {
   entry: {
-    app: assetPath + 'javascripts/index.es6',
-    styles: assetPath + 'stylesheets/index.es6',
-    images: sync('./app/assets/images/**/*.jpg'),
+    app: [
+      assetPath + 'javascripts/index.es6',
+      assetPath + 'stylesheets/index.es6',
+      ...sync(assetPath + 'images/**/*.jpg')
+    ],
     vendor: ['turbolinks']
   },
   output: {

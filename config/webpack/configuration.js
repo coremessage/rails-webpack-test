@@ -9,7 +9,7 @@ const loadersDir = join(__dirname, 'loaders')
 const paths = require(join(configPath, 'paths.json'))
 const devServer = require(join(configPath, 'development.server.json'))
 const publicPath = env.NODE_ENV !== 'production' && devServer.enabled ?
-  `http://${devServer.host}:${devServer.port}/` : `/${paths.entry}/`
+  `http://${devServer.host}:${devServer.port}/` : `/${paths.output.replace('public/', '')}/`
 
 module.exports = {
   devServer,

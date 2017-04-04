@@ -2,7 +2,7 @@
 $stdout.sync = true
 
 require "shellwords"
-require "yaml"
+require "json"
 
 ENV["RAILS_ENV"] ||= "development"
 RAILS_ENV   = ENV["RAILS_ENV"]
@@ -11,14 +11,14 @@ ENV["NODE_ENV"] ||= RAILS_ENV
 NODE_ENV    = ENV["NODE_ENV"]
 
 APP_PATH               = File.expand_path("../", __dir__)
-CONFIG_PATH            = File.join(APP_PATH, "config/webpack/paths.yml")
-DEV_SERVER_CONFIG_PATH = File.join(APP_PATH, "config/webpack/development.server.yml")
+CONFIG_PATH            = File.join(APP_PATH, "config/webpack/paths.json")
+DEV_SERVER_CONFIG_PATH = File.join(APP_PATH, "config/webpack/development.server.json")
 
 begin
-  paths            = YAML.load(File.read(CONFIG_PATH))
-  dev_server = YAML.load(File.read(DEV_SERVER_CONFIG_PATH))
+  paths      = JSON.parse(File.read(CONFIG_PATH))
+  dev_server = JSON.parse(File.read(DEV_SERVER_CONFIG_PATH))
 
-  NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, paths["node_modules"])
+  NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, "node_modules")
   WEBPACK_CONFIG_PATH = File.join(APP_PATH.shellescape, paths["config"])
 
   if NODE_ENV == "development" && dev_server["enabled"]
@@ -26,7 +26,7 @@ begin
       "Disable to serve assets directly from public/packs directory"
   end
 rescue Errno::ENOENT, NoMethodError
-  puts "Configuration not found in config/webpack/paths.yml or config/webpack/development.server.yml."
+  puts "Configuration not found in config/webpack/paths.json or config/webpack/development.server.json."
   puts "Please run bundle exec rails webpacker:install to install webpacker"
   exit!
 end

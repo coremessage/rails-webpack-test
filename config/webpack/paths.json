@@ -1,4 +1,4 @@
 {
   "config": "config/webpack",
-  "output": "public"
+  "output": "public/assets"
 }

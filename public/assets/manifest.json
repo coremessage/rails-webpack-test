@@ -1,0 +1,9 @@
+{
+  "app.css": "http://localhost:8080/app.css",
+  "app.css.map": "http://localhost:8080/app.css.map",
+  "app.js": "http://localhost:8080/bundle.app.js",
+  "app.js.map": "http://localhost:8080/bundle.app.js.map",
+  "innercowhero.jpg": "http://localhost:8080/innercowhero.jpg",
+  "vendor.js": "http://localhost:8080/bundle.vendor.js",
+  "vendor.js.map": "http://localhost:8080/bundle.vendor.js.map"
+}
